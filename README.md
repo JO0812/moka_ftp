@@ -5,6 +5,7 @@ A mobile-friendly FTP client for browsing and managing remote files.
 ## Technologies Used
 
 ### Frontend
+
 - **React** (v18.3) - UI framework
 - **TypeScript** (v5.4) - Type-safe JavaScript
 - **Material UI** (v5.15) - UI component library
@@ -13,6 +14,7 @@ A mobile-friendly FTP client for browsing and managing remote files.
 - **Vite** (v5.4) - Build tool and development server
 
 ### Backend
+
 - **Spring Boot** (v3.2.5) - Java application framework
 - **Java** (v21) - Programming language
 - **Apache Commons Net** (v3.10) - FTP client library
@@ -28,9 +30,14 @@ The application consists of two main components:
 
 ## Setup Instructions
 
-### Backend Server
+### Running the Application
+
+To run the Moka FTP Client application, you need to start both the backend and frontend services separately.
+
+#### Backend Server
 
 1. Navigate to the backend directory:
+
    ```bash
    cd backend_server
    ```
@@ -42,7 +49,7 @@ The application consists of two main components:
    
    The backend will start on port 8082.
 
-### Frontend Client
+#### Frontend Client
 
 1. Navigate to the frontend directory:
    ```bash
@@ -59,7 +66,7 @@ The application consists of two main components:
    npm run dev
    ```
    
-   The frontend will start on port 5173.
+   The frontend will start on port 5173 or 5174.
 
 ## Manual Testing Guide
 
@@ -130,5 +137,17 @@ The application consists of two main components:
 ### Frontend Issues
 
 - If the UI doesn't load, verify that the frontend development server is running
-- For CORS errors, ensure that the backend has proper CORS configuration
+- For CORS errors:
+  - Ensure you're accessing the application from an allowed origin (`http://localhost:5173` or `http://127.0.0.1:5173`)
+  - Check that the backend CORS configuration is correctly set up
+  - Look for CORS-related error messages in the browser console
 - For authentication issues, check the browser console for error messages
+
+### CORS Troubleshooting
+
+If you encounter CORS-related errors:
+
+1. **Check the browser console** for specific CORS error messages
+2. **Verify allowed origins** in the backend configuration
+3. **Ensure credentials are included** in your frontend requests
+4. **Check for typos in URLs** - `localhost` and `127.0.0.1` are treated as different origins

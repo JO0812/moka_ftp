@@ -14,10 +14,21 @@ public class WebConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         
-        // Allow all origins for development - restrict in production
-        config.addAllowedOrigin("*");
+        // Allow specific origins for development
+        config.addAllowedOrigin("http://localhost:5173");
+        config.addAllowedOrigin("http://localhost:5174");
+        config.addAllowedOrigin("http://127.0.0.1:5173");
+        config.addAllowedOrigin("http://127.0.0.1:5174");
+        
+        // Allow credentials (cookies, authorization headers)
+        config.setAllowCredentials(true);
+        
+        // Allow all headers and methods
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
+        
+        // Configure max age (preflight cache time in seconds)
+        config.setMaxAge(3600L);
         
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);

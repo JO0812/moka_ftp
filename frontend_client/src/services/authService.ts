@@ -21,10 +21,21 @@ export const login = async (
     );
     return response.data;
   } catch (error: any) {
-    if (axios.isAxiosError(error) && error.response) {
-      return error.response.data as LoginResponseDto; // Backend might send error details in data
+    if (axios.isAxiosError(error)) {
+      // Check if there's a response from the server
+      if (error.response) {
+        return error.response.data as LoginResponseDto; // Backend might send error details in data
+      }
+      
+      // No response received - likely CORS or network issue
+      if (error.message.includes('Network Error')) {
+        console.error('CORS or network error:', error);
+        throw new Error(
+          'Unable to connect to the backend server. Please ensure the server is running at http://localhost:8082 and CORS is properly configured.'
+        );
+      }
     }
-    // Network error or other unexpected issue
+    // Other unexpected issues
     throw new Error(
       error.message || 'A network error occurred. Please try again.'
     );

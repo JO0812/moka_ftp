@@ -47,9 +47,20 @@ Agile structure: Plan features as epics and break each into individual tasks acr
 - Conflict handling: Detect conflicts (e.g. file changed on server) and prompt the user or resolve appropriately.
 - Status updates: Notify the user of sync status (e.g. via notifications or a status indicator in the app).
 
+### Security Enhancements (Roadmap)
+
+- Move JWT secret to environment variables: Improve security by removing hardcoded JWT secret from the codebase.
+- HTTPS implementation: Configure SSL/TLS for secure connection between frontend and backend.
+- Refresh token mechanism: Implement token refresh for extended sessions without requiring re-login.
+- Rate limiting: Add protection against brute force attacks by limiting login attempts.
+- Production CORS configuration: Update CORS settings for production environment with stricter origin rules.
+- Sensitive data handling: Ensure proper encryption and protection of credentials and tokens.
+- Security audit: Conduct a comprehensive security review of the application.
+
 ## MVP Feature Scope Summary
 
 - Core features only: MVP covers user authentication (via FTP credentials), browsing files/folders, and basic file metadata display (name, size, date). Features are kept to a minimum to validate the concept.
 - UI/UX: Implement Material Design list views for file browsing and simple login screens, ensuring a clean, consistent interface.
 - Performance: Optimize directory queries and UI rendering for quick response (while MVP does not cache data, design should allow easy extension).
 - Error and edge cases: Include handling for common failures (bad credentials, network errors) so the app is robust.
+- Security: Basic security with JWT authentication and appropriate CORS configuration for development environment.
