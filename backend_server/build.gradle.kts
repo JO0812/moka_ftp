@@ -4,7 +4,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.1.4"
 }
 
-group = "com.example"
+group = "com.jo"
 version = "0.0.1-SNAPSHOT"
 
 java {
@@ -19,8 +19,13 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	// Add other dependencies as needed, e.g., for FTP, security
-	// implementation("commons-net:commons-net:3.9.0") // Example for Apache Commons Net FTP
+	implementation("commons-net:commons-net:3.10.0") // Apache Commons Net for FTP
 	// implementation("org.springframework.boot:spring-boot-starter-security")
+	
+	// JWT dependencies
+	implementation("io.jsonwebtoken:jjwt-api:0.11.5")
+	runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.5")
+	runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.11.5") // For JSON processing with Jackson
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

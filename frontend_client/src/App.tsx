@@ -6,13 +6,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 
-// Placeholder screens
-const LoginScreen = () => (
-  <Container sx={{mt: 4}}>
-    <Typography variant="h4">Login</Typography>
-    {/* Login form will go here */}
-  </Container>
-);
+import LoginScreen from './features/auth/LoginScreen';
 const FtpBrowserScreen = () => (
   <Container sx={{mt: 4}}>
     <Typography variant="h4">FTP Browser</Typography>
@@ -20,24 +14,49 @@ const FtpBrowserScreen = () => (
   </Container>
 );
 
+import { AuthProvider, useAuth } from './services/authContext';
+
+// Navigation component that changes based on auth state
+const Navigation = () => {
+  const { isAuthenticated, logout } = useAuth();
+  
+  return (
+    <AppBar position="static">
+      <Toolbar>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          Moka FTP Client
+        </Typography>
+        {isAuthenticated ? (
+          <>
+            <Button color="inherit" component={Link} to="/browse">Browse Files</Button>
+            <Button color="inherit" onClick={logout}>Logout</Button>
+          </>
+        ) : (
+          <Button color="inherit" component={Link} to="/login">Login</Button>
+        )}
+      </Toolbar>
+    </AppBar>
+  );
+};
+
+// Protected route component
+const ProtectedRoute = ({ element }: { element: JSX.Element }) => {
+  const { isAuthenticated } = useAuth();
+  return isAuthenticated ? element : <Typography sx={{p:2}}>Please login to access this page. <Link to="/login">Go to login</Link></Typography>;
+};
+
 function App() {
   return (
-    <Router>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Moka FTP Client
-          </Typography>
-          <Button color="inherit" component={Link} to="/login">Login</Button>
-          <Button color="inherit" component={Link} to="/browse">Browse</Button>
-        </Toolbar>
-      </AppBar>
-      <Routes>
-        <Route path="/login" element={<LoginScreen />} />
-        <Route path="/browse" element={<FtpBrowserScreen />} />
-        <Route path="/" element={<Typography sx={{p:2}}>Welcome! Navigate to Login or Browse.</Typography>} />
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Navigation />
+        <Routes>
+          <Route path="/login" element={<LoginScreen />} />
+          <Route path="/browse" element={<ProtectedRoute element={<FtpBrowserScreen />} />} />
+          <Route path="/" element={<Typography sx={{p:2}}>Welcome to Moka FTP! Navigate to Login to get started.</Typography>} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 
