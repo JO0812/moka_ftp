@@ -16,17 +16,20 @@ The Mobile FTP Client application is a web-based FTP client featuring a Spring B
 #### Backend (Spring Boot)
 
 ✅ **Authentication System**
+
 - JWT-based authentication with proper token generation using HS256 algorithm
 - Token validity period of 24 hours
 - Debug mode for testing without a real FTP server
 - Password validation on backend
 
 ✅ **FTP Directory Browsing**
+
 - Directory listing API endpoint
 - Mock data support for testing environments
 - Error handling and proper HTTP status codes
 
 ✅ **Security**
+
 - Enhanced CORS configuration with specific origins and credentials support
 - No password storage in responses
 - Token validation on protected endpoints
@@ -34,12 +37,14 @@ The Mobile FTP Client application is a web-based FTP client featuring a Spring B
 #### Frontend (React/TypeScript/Material UI)
 
 ✅ **Authentication**
+
 - Login screen with form validation
 - JWT token storage in localStorage
 - Authentication context for state management
 - Protected routes
 
 ✅ **FTP Browser**
+
 - Directory listing with file/folder icons
 - Navigation through directories
 - Breadcrumb navigation for path tracking
@@ -47,6 +52,7 @@ The Mobile FTP Client application is a web-based FTP client featuring a Spring B
 - Loading indicators and error handling
 
 ✅ **Documentation**
+
 - Setup instructions
 - Testing guidelines
 - Quick-start script
@@ -54,12 +60,14 @@ The Mobile FTP Client application is a web-based FTP client featuring a Spring B
 ### Planned But Not Implemented Features
 
 #### File Operations
+
 - File uploads
 - File downloads
 - File/directory creation
 - File/directory deletion
 
 #### Additional Features
+
 - File search functionality
 - File preview capabilities
 - Connection management for multiple FTP servers
@@ -95,6 +103,7 @@ Enhanced CORS configuration has been implemented in WebConfig.java to allow secu
 ### Key Components
 
 #### Backend
+
 - `AuthController` - Handles login requests
 - `FtpController` - Handles FTP operations
 - `JwtTokenProvider` - Manages JWT token generation and validation

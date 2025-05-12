@@ -126,7 +126,7 @@ The Moka FTP Client application has been successfully implemented according to t
 
 ## Conclusion
 
-The Moka FTP Client application has been successfully implemented with all core functionality working as expected. The application provides a robust and user-friendly interface for browsing FTP servers, with proper authentication and security measures in place. 
+The Moka FTP Client application has been successfully implemented with all core functionality working as expected. The application provides a robust and user-friendly interface for browsing FTP servers, with proper authentication and security measures in place.
 
 Key accomplishments:
 
