@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+// Using HashRouter to ensure proper client-side routing in all environments
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -7,12 +8,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 
 import LoginScreen from './features/auth/LoginScreen';
-const FtpBrowserScreen = () => (
-  <Container sx={{mt: 4}}>
-    <Typography variant="h4">FTP Browser</Typography>
-    {/* File and folder listing will go here */}
-  </Container>
-);
+import FtpBrowserScreen from './features/ftp/FtpBrowserScreen';
 
 import { AuthProvider, useAuth } from './services/authContext';
 
@@ -53,7 +49,26 @@ function App() {
         <Routes>
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/browse" element={<ProtectedRoute element={<FtpBrowserScreen />} />} />
-          <Route path="/" element={<Typography sx={{p:2}}>Welcome to Moka FTP! Navigate to Login to get started.</Typography>} />
+          <Route path="/" element={
+            <Container sx={{p:4}}>
+              <Typography variant="h4" gutterBottom>Welcome to Moka FTP Client</Typography>
+              <Typography variant="body1" paragraph>
+                This application allows you to connect to FTP servers and browse files securely.
+              </Typography>
+              <Typography variant="body1" paragraph>
+                To get started, click the Login button in the navigation bar above.
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                For testing, you can use these credentials:
+                <ul>
+                  <li>Host: localhost</li>
+                  <li>Port: 21</li>
+                  <li>Username: test</li>
+                  <li>Password: password</li>
+                </ul>
+              </Typography>
+            </Container>
+          } />
         </Routes>
       </Router>
     </AuthProvider>
