@@ -1,27 +1,30 @@
-# Gradle files
-.gradle/
-build/
-
-# Local configuration file (sdk path, etc)
-local.properties
-
-# Log/OS Files
+# OS Files
+.DS_Store
 *.log
-*.DS_Store
 
-# Android Studio generated files and folders
-captures/
-.externalNativeBuild/
-.cxx/
-*.apk
-output.json
-
-# IntelliJ
-*.iml
+# IDE specific files
 .idea/
-misc.xml
-deploymentTargetDropDown.xml
-render.experimental.xml
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+.vscode/
+nbproject/
+
+# Local configuration
+local.properties
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Temporary files
+tmp/
+temp/
+*.tmp
 
 # Keystore files
 *.jks
@@ -33,42 +36,17 @@ google-services.json
 # Android Profiling
 *.hprof
 
-# Node / React
-frontend_client/node_modules/
-frontend_client/build/
-frontend_client/dist/
-frontend_client/.DS_Store
-frontend_client/npm-debug.log*
-frontend_client/yarn-debug.log*
-frontend_client/yarn-error.log*
-frontend_client/.env.local
-frontend_client/.env.development.local
-frontend_client/.env.test.local
-frontend_client/.env.production.local
+# Generated documentation and auxiliary files
+docs/generated/
+*.md.new
 
-# Java / Spring Boot
-backend_server/.gradle/
-backend_server/build/
-backend_server/target/
-backend_server/*.class
-backend_server/*.log
-backend_server/.mtj.tmp/
-backend_server/*.jar
-backend_server/*.war
-backend_server/*.nar
-backend_server/*.ear
-backend_server/*.zip
-backend_server/*.tar.gz
-backend_server/*.rar
-backend_server/hs_err_pid*
+# Gradle (root level)
+.gradle/
+build/
 
-# IDE specific
-.idea/
-*.iml
-*.ipr
-*.iws
-.project
-.classpath
-.settings/
-nbproject/
+# Maven
+target/
+
+# IDE specific files (already included in top section)
+# .idea/, *.iml, etc.
 
