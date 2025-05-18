@@ -103,30 +103,34 @@ To run the Moka FTP Client application, you need to start both the backend and f
    ```
 
 2. Run the Spring Boot application:
+
    ```bash
    ./gradlew bootRun
    ```
-   
+
    The backend will start on port 8082.
 
 #### Frontend Client
 
 1. Navigate to the frontend directory:
+
    ```bash
    cd frontend_client
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    ```
 
 3. Start the development server:
+
    ```bash
    npm run dev
    ```
-   
-   The frontend will start on port 5173 or 5174.
+
+The frontend will start on port 5173 or 5174.
 
 ## Manual Testing Guide
 
