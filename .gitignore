@@ -20,7 +20,6 @@ local.properties
 .env.development.local
 .env.test.local
 .env.production.local
-/node_modules
 
 # Temporary files
 tmp/
@@ -48,6 +47,4 @@ build/
 # Maven
 target/
 
-# IDE specific files (already included in top section)
-# .idea/, *.iml, etc.
 
