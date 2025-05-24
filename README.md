@@ -1,25 +1,6 @@
 # Moka FTP Client
 
-A mobile-friendly FTP client for browsing and managing remote files.
-
-## Technologies Used
-
-### Frontend
-
-- **React** (v18.3) - UI framework
-- **TypeScript** (v5.4) - Type-safe JavaScript
-- **Material UI** (v5.15) - UI component library
-- **React Router DOM** (v6.23) - Navigation and routing
-- **Axios** (v1.7) - HTTP client for API requests
-- **Vite** (v5.4) - Build tool and development server
-
-### Backend
-
-- **Spring Boot** (v3.2.5) - Java application framework
-- **Java** (v21) - Programming language
-- **Apache Commons Net** (v3.10) - FTP client library
-- **JJWT** (v0.11.5) - JWT token creation and validation
-- **Gradle** - Build tool
+Dead simple ftp client, backend uses Java w/ Spring Boot and front made with React + TS.
 
 ## Project Structure
 
